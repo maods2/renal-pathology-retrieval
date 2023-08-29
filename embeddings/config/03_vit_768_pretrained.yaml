@@ -1,0 +1,8 @@
+
+model: 'vit'
+embedding_dim: 768
+pipeline: 0
+train: False
+batch_size: 128
+dataset_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/01_raw/'
+save_file_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data_output/embeddings/vit768_pretrained.pickle'
