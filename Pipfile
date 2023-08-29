@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://download.pytorch.org/whl/cu118"
+verify_ssl = false
+name = "pytorch"
+
+[packages]
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+matplotlib = "*"
+pillow = "*"
+numpy = "*"
+pandas = "*"
+tensorflow = "*"
+scikit-learn = "*"
+transformers = "*"
+renumics-spotlight = "*"
+plotly = "*"
+nbformat = "*"
+ipykernel = "*"
+efficientnet-pytorch = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.10"
+python_full_version = "3.10.4"
