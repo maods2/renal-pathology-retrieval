@@ -6,22 +6,15 @@ import torch
 import pickle 
 from options import BaseOptions, load_parameters
 
-## sh script to set differents embeddings models
-# class Config:
-#     def __init__(self) -> None:
-#         self.model = "vgg16"
-#         self.embedding_dim = 4096
-#         self.pipeline = None
-#         self.train = False
-#         self.batch_size = 256
-#         self.dataset_path = "C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/01_raw/"
-#         self.save_file_path = ""
+
+def slice_image_paths(paths):
+    return [i.split('/')[11].replace('\\','/') for i in paths]
+
 
 class Config:
     def __init__(self, **entries):
         self.__dict__.update(entries)
 
-# config = Config()
 
 opt = BaseOptions().parse()
 config = load_parameters(opt.config_file)
@@ -44,24 +37,29 @@ if config.train:
 
 
 # compute embeddings and save
-feature_embeddings = np.empty((0, config.embedding_dim))
+target = []
+paths = []
 labels = []
-for i, (x, y) in enumerate(dataloader):
+feature_embeddings = np.empty((0, config.embedding_dim))
+
+for i, (x, y, path, label) in enumerate(dataloader):
     x = x.to(device=device)
     with torch.no_grad():
         batch_features = model(x)
 
     batch_features = batch_features.view(batch_features.size(0), -1).cpu().numpy()
     feature_embeddings = np.vstack((feature_embeddings, batch_features))
-    labels.extend(list(y.cpu().detach().numpy()))
+    target.extend(list(y.cpu().detach().numpy()))
+    paths.extend(slice_image_paths(path))
+    labels.extend(label)
 
 
 data_dict = {
     "model": config.model,
     "embedding":feature_embeddings,
-    "labels":labels,
-    "paths": data.paths,
-    "classes":data.labels
+    "target":target,
+    "paths": paths,
+    "classes":labels
 }
 
 with open(config.save_file_path, 'wb') as pickle_file:
