@@ -15,6 +15,10 @@ class BaseOptions():
         return self.opt 
 
 
+class Config:
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
+        
 def load_parameters(filename):
     with open(filename, 'r') as file:
         params = yaml.safe_load(file)

@@ -1,0 +1,11 @@
+
+model: 'efficientnetb0'
+embedding_dim: 1280
+pipeline: "triplet"
+batch_size: 20
+inf_batch_size: 128
+lr: 0.001
+epochs: 100
+data_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/02_data_split/train_data/'
+val_data_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/02_data_split/test_data/'
+save_file_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data_output/trained_embeddings/efficientnetb0_4096_triplet.pickle'

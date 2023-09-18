@@ -4,21 +4,13 @@ from torch.utils.data import DataLoader
 import numpy as np
 import torch
 import pickle 
-from options import BaseOptions, load_parameters
+from options import BaseOptions, Config, load_parameters
+from utils import slice_image_paths
 
-
-def slice_image_paths(paths):
-    return [i.split('/')[11].replace('\\','/') for i in paths]
-
-
-class Config:
-    def __init__(self, **entries):
-        self.__dict__.update(entries)
 
 
 opt = BaseOptions().parse()
-config = load_parameters(opt.config_file)
-config = Config(**config)
+config = Config(**load_parameters(opt.config_file))
 
 # Load data
 data = ImageDataLoader(config.dataset_path)
@@ -28,13 +20,7 @@ dataloader = DataLoader(data.dataset, batch_size=config.batch_size, shuffle=Fals
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = get_model(config.model)
 model.to(device)
-
-
-# train embedings
-if config.train:
-    train_embedding = get_model(config.pipeline)
-    train_embedding(model, dataloader)
-
+model.eval()
 
 # compute embeddings and save
 target = []
