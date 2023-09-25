@@ -2,6 +2,7 @@ from pathlib import Path
 import torch
 import time
 import matplotlib.pyplot as plt
+import yaml
 
 def slice_image_paths(paths):
     return [i.split('/')[11].replace('\\','/') for i in paths]
@@ -17,6 +18,10 @@ def save_checkpoint(model, optimizer, loss, config):
         results_path=f"./data_output/checkpoints/{timestamp_folder}"
         )
     torch.save(state, filename)
+
+    with open(f"./data_output/checkpoints/{timestamp_folder}/config.yaml", "w") as yaml_file:
+        yaml.dump(config.__dict__, yaml_file)
+
 
 
 

@@ -1,0 +1,11 @@
+
+model: 'conv_encoder'
+embedding_dim: 12544
+pipeline: "autoencoder"
+loss_func:
+batch_size: 32
+inf_batch_size: 128
+lr: 0.001
+epochs: 100
+data_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/02_data_split/train_data/'
+save_file_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data_output/trained_embeddings/default_autoencoder.pickle'

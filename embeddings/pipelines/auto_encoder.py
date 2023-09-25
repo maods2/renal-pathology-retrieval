@@ -145,7 +145,7 @@ def train_auto_encoder(model, config):
     # Create the validation dataloader
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size)
 
-
+    loss_funcs = {"MSE": nn.MSELoss, ""}
 
     loss_fn = nn.MSELoss() # We use Mean squared loss which computes difference between two images.
 
