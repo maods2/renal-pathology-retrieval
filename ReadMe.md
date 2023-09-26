@@ -110,6 +110,3 @@ To run the application, follow these steps:
    
 Please refer to the specific sections in this repository for detailed instructions on each step.
 
-## Conclusion
-
-You are now familiar with the Terumo Service Search Monolith repository. This backend API, implemented in Python, provides functionalities for serving images, managing metadata, and performing content-based image retrieval for renal pathologists. Follow the provided instructions to set up, run, and develop the application according to your requirements.
