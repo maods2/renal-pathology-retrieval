@@ -16,3 +16,6 @@ wandb/
 
 notebooks/*.jpg
 *.jpg
+
+*.pth.tar
+*embeddings.ipynb
