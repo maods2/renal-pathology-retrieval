@@ -1,0 +1,8 @@
+
+model: 'vgg16'
+embedding_dim: 4096
+pipeline: 0
+train: False
+batch_size: 128
+dataset_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data/02_data_split/train_data/'
+save_file_path: 'C:/Users/Maods/Documents/Development/Mestrado/terumo/apps/renal-pathology-retrieval/data_output/embeddings/vgg16_4096_pretrained.pickle'
