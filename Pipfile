@@ -24,6 +24,11 @@ plotly = "*"
 nbformat = "*"
 ipykernel = "*"
 efficientnet-pytorch = "*"
+lightly = "*"
+huggingface = "*"
+datasets = "*"
+tokenizers = "*"
+evaluate = "*"
 
 [dev-packages]
 ipykernel = "*"

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import yaml
 
 def slice_image_paths(paths):
-    return [i.split('/')[11].replace('\\','/') for i in paths]
+    return [i.split('/')[-1].replace('\\','/') for i in paths]
 
 
 def save_checkpoint(model, optimizer, loss, config):
