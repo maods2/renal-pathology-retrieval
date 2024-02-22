@@ -18,9 +18,14 @@ dataloader = DataLoader(data.dataset, batch_size=config.batch_size, shuffle=Fals
 
 # select embedding model training
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+checkpoint = torch.load(config.model_state_dict_path)
+
 model = get_model(config.model)
+
+model.load_state_dict(checkpoint['state_dict'])
 model.to(device)
 model.eval()
+
 
 # compute embeddings and save
 target = []

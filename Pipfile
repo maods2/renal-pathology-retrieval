@@ -29,6 +29,21 @@ huggingface = "*"
 datasets = "*"
 tokenizers = "*"
 evaluate = "*"
+python-decouple = "==3.8"
+future = "*"
+requests-toolbelt = "*"
+opencv-python = "*"
+shapely = "*"
+rasterio = "*"
+tqdm = "*"
+gdown = "==4.2.1"
+scipy = "*"
+albumentations = "*"
+segmentation-models-pytorch = "==0.3.3"
+kaggle = "*"
+mmengine = "*"
+typer = {extras = ["all"], version = "*"}
+terumo-seg-esclerose = {path = "C:/Users/Maods/Downloads/terumo-seg-esclerose-main/terumo-seg-esclerose-main"}
 
 [dev-packages]
 ipykernel = "*"

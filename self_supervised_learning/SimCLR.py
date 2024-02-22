@@ -70,7 +70,7 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.1, weight_decay=1e-6)
 
 
 loss_curve = np.array([])
-num_epochs = 1
+num_epochs = 100
 print("Starting Training")
 for epoch in range(num_epochs):
     total_loss = 0

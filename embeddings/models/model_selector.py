@@ -20,6 +20,9 @@ def get_model(argument):
     
     elif argument == "conv_encoder":
         return get_conv_encoder()
+    
+
+    
         
     else:
         raise Exception("Not found")

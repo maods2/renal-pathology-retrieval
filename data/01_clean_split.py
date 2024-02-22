@@ -1,6 +1,6 @@
-from pathlib import Path
 from collections import Counter
 import random
+from pathlib import Path
 
 
 # Load all files path

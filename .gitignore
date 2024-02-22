@@ -2,6 +2,7 @@ data/binary
 data/raw
 data/results
 data/test
+data/*
 .vscode
 .pth.tar
 *.pickle
@@ -20,3 +21,11 @@ notebooks/*.jpg
 
 *.pth.tar
 *embeddings.ipynb
+
+*.png
+**.png
+*.pth
+
+*.csv
+*.xlsm
+*.xlsx

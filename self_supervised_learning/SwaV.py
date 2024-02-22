@@ -49,12 +49,15 @@ backbone._fc = torch.nn.Identity()
 
 model = SwaV(backbone)
 
+caminho_do_arquivo = './efficientnet_SwaV_model_test.pth'
+model = torch.load(caminho_do_arquivo)
+
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model.to(device)
 
 transform = SwaVTransform()
 
-dataset = LightlyDataset(input_dir="../data/02_data_split/test_data/", transform=transform)
+dataset = LightlyDataset(input_dir="../data/02_data_split/train_data/", transform=transform)
 
 
 dataloader = torch.utils.data.DataLoader(
@@ -69,7 +72,7 @@ criterion = SwaVLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 loss_curve = np.array([])
-num_epochs = 1
+num_epochs =100
 print("Starting Training")
 for epoch in range(num_epochs):
     total_loss = 0
@@ -101,7 +104,7 @@ plt.savefig(nome_arquivo)
 # plt.show()
 
 
-caminho_do_arquivo = 'efficientnet_SwaV_model_test.pth'
+caminho_do_arquivo = 'efficientnet_SwaV_model_test2.pth'
 torch.save(model, caminho_do_arquivo)
 
 
