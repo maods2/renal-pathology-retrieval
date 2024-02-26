@@ -6,7 +6,7 @@ name = "pypi"
 [[source]]
 url = "https://download.pytorch.org/whl/cu118"
 verify_ssl = false
-name = "pytorch"
+name = "torch"
 
 [packages]
 torch = "*"
