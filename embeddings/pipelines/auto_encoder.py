@@ -32,7 +32,17 @@ class FolderDataset(Dataset):
     def __len__(self):
         return len(self.all_imgs)
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx: int):
+        """Returns the dataset item with that given index, for the autoencoder training.
+
+        Args:
+            idx (int): index of image to retrieve
+
+        Returns:
+            (torch.tensor, torch.tensor): returns a tuple containing the training image for that
+            given index, twice (i.e duplicated). This will be used to train the autoencoder, since
+            its objective is for the decoder to learn to reverse the transformation done by the encoder.
+        """
         img_loc = os.path.join(self.main_dir, self.all_imgs[idx])
         image = Image.open(img_loc).convert("RGB")
 
@@ -144,8 +154,6 @@ def train_auto_encoder(model, config):
     
     # Create the validation dataloader
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=config.batch_size)
-
-    loss_funcs = {"MSE": nn.MSELoss, ""}
 
     loss_fn = nn.MSELoss() # We use Mean squared loss which computes difference between two images.
 
